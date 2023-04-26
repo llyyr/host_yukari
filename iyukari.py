@@ -133,8 +133,6 @@ def delete_file(path):
     sha256 = upload.sha256
     ext = upload.ext
     path = os.path.join(app.config['UPLOAD_FOLDER'], sha256 + ext)
-    db.session.delete(upload)
-    db.session.commit()
     os.remove(path)
     return f'File {upload.filename} has been deleted\n'
 
