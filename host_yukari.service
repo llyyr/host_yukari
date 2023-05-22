@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve host.yukari.in
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/var/www/host.yukari.in/
+Environment="PATH=/var/www/host.yukari.in/venv/bin"
+ExecStart=/var/www/host.yukari.in/venv/bin/gunicorn --bind 0.0.0.0:5000 host_yukari:app
+
+[Install]
+WantedBy=multi-user.target
