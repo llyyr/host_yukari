@@ -83,10 +83,6 @@ class Upload(db.Model):
             db.session.commit()
             return upload
 
-@app.before_first_request
-def create_database():
-    db.create_all()
-
 @app.route('/')
 def index():
     return 'yukariin\n'
